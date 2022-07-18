@@ -11,6 +11,17 @@ export default () => ({
 
     this.advice = await (await fetch('https://api.adviceslip.com/advice')).json()
 
-    this.loading = false
+    setTimeout(() => {
+      this.loading = false
+    }, 2000)
+  },
+
+  trigger: {
+    ['@click.throttle.2000ms']() {
+      this.getAdvice()
+    },
+    [':disabled']() {
+      return this.loading
+    },
   },
 })

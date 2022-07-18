@@ -36,8 +36,7 @@
         />
       </picture>
       <button
-        @click.throttle="getAdvice"
-        :disabled="advice.loading ? true : false"
+        x-bind="trigger"
         class="bg-green-400 rounded-full w-16 h-16 grid place-items-center absolute left-0 right-0 -bottom-8 mx-auto group disabled:bg-green-500 disabled:cursor-not-allowed"
         aria-label="Generate a new piece of advice."
       >
