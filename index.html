@@ -13,13 +13,13 @@
       class="bg-slate-800 rounded-lg shadow-md text-center w-full sm:w-[30rem] pt-8 sm:pt-10 px-6 sm:px-10 pb-20 sm:pb-20 relative min-h-[19rem] grid items-center"
       x-data="advice"
     >
-      <div class="text-green-400 uppercase tracking-[0.2em] text-xs">
+      <div class="text-green-400 uppercase tracking-[0.2em] text-xs" aria-label="The advice's ID">
         advice
         <template x-if="advice.slip">
           <span><span>#</span><span x-text="advice.slip.id"></span></span>
         </template>
       </div>
-      <div class="text-2xl pt-6 pb-8 min-h-[97px]">
+      <div class="text-2xl pt-6 pb-8 min-h-[97px]" aria-label="The advice's text.">
         <template x-if="advice.slip">
           <p>
             <span>&ldquo;</span><span></span><span x-text="advice.slip.advice">#</span
@@ -27,7 +27,7 @@
           </p>
         </template>
       </div>
-      <picture>
+      <picture aria-hidden="true">
         <source media="(min-width: 640px)" srcset="/pattern-divider-desktop.svg" />
         <img
           src="/pattern-divider.svg"
