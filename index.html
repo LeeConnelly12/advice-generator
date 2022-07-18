@@ -5,10 +5,25 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advice Generator Challenge</title>
-    <link rel="stylesheet" href="/style.css">
-  </head>
-  <body>
-    <div id="app"></div>
     <script type="module" src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="antialiased bg-slate-900 text-slate-400 grid place-items-center min-h-screen p-6">
+    <main class="bg-slate-800 rounded-lg shadow-md text-center pt-8 px-6 pb-16 relative">
+      <div class="text-green-400 uppercase tracking-[0.2em] text-xs">advice #117</div>
+      <div class="text-2xl pt-6">
+        <p>
+          <span>&ldquo;</span>It is easy to sit up and take notice, what's difficult is getting up
+          taking action.<span>&rdquo;</span>
+        </p>
+      </div>
+      <img src="/pattern-divider.svg" alt="" class="pt-6" />
+      <button
+        class="bg-green-400 rounded-full w-16 h-16 grid place-items-center absolute left-0 right-0 -bottom-8 mx-auto"
+        aria-label="Generate a new piece of advice."
+      >
+        <img src="/dice.svg" alt="Dice." />
+      </button>
+    </main>
   </body>
 </html>
