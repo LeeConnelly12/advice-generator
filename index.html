@@ -14,13 +14,18 @@
       x-data="advice"
     >
       <div class="text-green-400 uppercase tracking-[0.2em] text-xs">
-        advice #<span x-text="advice.slip.id"></span>
+        advice
+        <template x-if="advice.slip">
+          <span><span>#</span><span x-text="advice.slip.id"></span></span>
+        </template>
       </div>
-      <div class="text-2xl pt-6 pb-8">
-        <p>
-          <span>&ldquo;</span><span></span
-          ><span x-text="advice.slip.advice" class="min-h-[97px]">#</span><span>&rdquo;</span>
-        </p>
+      <div class="text-2xl pt-6 pb-8 min-h-[97px]">
+        <template x-if="advice.slip">
+          <p>
+            <span>&ldquo;</span><span></span><span x-text="advice.slip.advice">#</span
+            ><span>&rdquo;</span>
+          </p>
+        </template>
       </div>
       <picture>
         <source media="(min-width: 640px)" srcset="/pattern-divider-desktop.svg" />
@@ -31,11 +36,12 @@
         />
       </picture>
       <button
-        @click="getAdvice"
-        class="bg-green-400 rounded-full w-16 h-16 grid place-items-center absolute left-0 right-0 -bottom-8 mx-auto"
+        @click.throttle="getAdvice"
+        :disabled="advice.loading ? true : false"
+        class="bg-green-400 rounded-full w-16 h-16 grid place-items-center absolute left-0 right-0 -bottom-8 mx-auto group disabled:bg-green-500 disabled:cursor-not-allowed"
         aria-label="Generate a new piece of advice."
       >
-        <img src="/dice.svg" alt="Dice." />
+        <img src="/dice.svg" alt="Dice." class="group-disabled:opacity-70" />
       </button>
     </main>
   </body>
